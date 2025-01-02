@@ -1,3 +1,5 @@
+from osgeo import gdal 
+
 # Load SyncroSim python package
 import pysyncrosim as ps
 
@@ -9,17 +11,17 @@ import pandas as pd
 myScenario = ps.Scenario()
 
 # Load Run Control Datasheet to set timesteps
-run_settings = myScenario.datasheets(name="RunControl")
+run_settings = myScenario.datasheets(name="helloworldPipelinePy_RunControl")
 
 # Set timesteps
 timesteps = np.array(range(run_settings.MinimumTimestep.item(),
                            run_settings.MaximumTimestep.item() + 1))
 
 # Load Scenario's input Datasheet from SyncroSim Library into DataFrame
-my_input_dataframe = myScenario.datasheets(name="IntermediateDatasheet")
+my_input_dataframe = myScenario.datasheets(name="helloworldPipelinePy_IntermediateDatasheet")
 
 # Set up empty pandas DataFrame to accept output values
-my_output_dataframe = myScenario.datasheets(name="OutputDatasheet")
+my_output_dataframe = myScenario.datasheets(name="helloworldPipelinePy_OutputDatasheet")
 
 # For loop through iterations
 for i in range(1, run_settings.MaximumIteration.item() + 1):
@@ -36,8 +38,8 @@ for i in range(1, run_settings.MaximumIteration.item() + 1):
                                     "yCum": y_cum})
 
     # Append temporary data frame to output data frame
-    my_output_dataframe = my_output_dataframe.append(temp_data_frame)
+    my_output_dataframe = pd.concat([my_output_dataframe, temp_data_frame])
 
 # Save the output DataFrame to the Scenario output Datasheet
-myScenario.save_datasheet(name="OutputDatasheet",
+myScenario.save_datasheet(name="helloworldPipelinePy_OutputDatasheet",
                           data=my_output_dataframe)
