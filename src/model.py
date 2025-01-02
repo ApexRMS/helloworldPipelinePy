@@ -1,5 +1,3 @@
-#import os
-#os.environ["GDAL_DATA"] = "C:\\Users\\DorianaRomualdi\\miniconda3\\envs\\helloworld\\Library\\share\\gdal"
 from osgeo import gdal
 
 # Load SyncroSim python package

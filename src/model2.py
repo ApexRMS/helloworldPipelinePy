@@ -1,4 +1,4 @@
-from osgeo import gdal 
+from osgeo import gdal
 
 # Load SyncroSim python package
 import pysyncrosim as ps
