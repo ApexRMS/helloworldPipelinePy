@@ -26,14 +26,14 @@
 	<!--Transformers-->
 
 	<!--First Transformer-->
-	<transformer name="firstModel" displayName="First Model" programArguments="model.py" condaEnv="helloworldPy.yml" condaEnvVersion="1">
+	<transformer name="firstModel" displayName="Hello World Pipeline 1 (Python)" programArguments="model.py" condaEnv="helloworldPy.yml" condaEnvVersion="1">
 		<dataSheet name="RunControl" type="Input"/>
 		<dataSheet name="InputDataSheet" type="Input"/>
 		<dataSheet name="IntermediateDataSheet" type="Output"/>
 	</transformer>
 
 	<!--Second Transformer-->
-	<transformer name="secondModel" displayName="Second Model" programArguments="model2.py" condaEnv="helloworldPy.yml" condaEnvVersion="1">
+	<transformer name="secondModel" displayName="Hello World Pipeline 2 (Python)" programArguments="model2.py" condaEnv="helloworldPy.yml" condaEnvVersion="1">
 		<dataSheet name="RunControl" type="Input"/>
 		<dataSheet name="IntermediateDataSheet" type="Input"/>
 		<dataSheet name="OutputDataSheet" type="Output"/>
